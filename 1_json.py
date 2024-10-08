@@ -22,3 +22,8 @@ my_json_string = '''{
             "address":{"city":"BKT","country":"Nepal"} (dict)
 }
 '''
+
+# from json to python dictionary
+import json 
+py_dict = json.loads(my_json_string)
+print(py_dict)
