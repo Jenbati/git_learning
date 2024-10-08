@@ -1,41 +1,84 @@
-#JSON
+# JSON
 # JavaScript Object Notation
-# JSON is a file extension for sharing data (information) between frontend and backend and between backend and backend. 
-# JSON is very much similar to python dictionary having keys and values where keys must be string enclosed in doble quotation mark. and values can be following datatype.
+# JSON is a file format use for the data communication between frontend and backend, between backend to backend. 
+# JSON is similar to Python dictionary having keys and values. Unlike Python dictionary, keys of json must be string enclosed in double quotation marks. And values can be following data type. 
 
 '''
-String:"Hello World" (must be enclosed in double quotation)
-Number: 1,2,3.1415
-Boolean: true,false (similar to python True and False)
-Null:null (similar to python None)
-Array:[1,2,"true","Hello"] (list)
-Obejct:"address":{"city":"BKT","country":"Nepal"} (dict)
+string: "Hello World" (must be enclosed in double quotation)
+numbers: 1,2,3.1415
+Boolean: true, false, (similar to True and False in python)
+Null: null (similar to None in python)
+Array : [1,2,3,4,"hello",true] (similar to list in python)
+Object : similar to python dictionary
 '''
 
-# Example:
-my_json_string = '''{
-            "name":"ram",
-            "age":24,
-            "is_student":true,
-            "phone":null,
-            "courses":["python","django","drf"],
-            "address":{"city":"BKT","country":"Nepal"} (dict)
+# Example of python dictionary
+py_student = {
+    'name' : 'Ram',
+    'age' : 23, 
+    'is_student': True,
+    'phone' : None,
+    'course' : ['python','django','drf'],
+    'address' : {
+                'city' : 'Bhaktapur',
+                'country' : 'Nepal'
+                }
 }
-'''
 
-# from json to python dictionary
-import json 
-py_dict = json.loads(my_json_string)
+# Equivalent json object
+json_string = '''{
+    "name" : "Ram",
+    "age" : 23, 
+    "is_student": true,
+    "phone" : null,
+    "course" : ["python","django","drf"],
+    "address" : {
+                "city" : "Bhaktapur",
+                "country" : "Nepal"
+                }
+}'''
+
+
+# Conversion from python dictionary to json string
+import json
+json_object = json.dumps(py_student)
+print(json_object)
+
+# Conversion from json string to python dictionary
+import json
+py_dict = json.loads(json_string)
 print(py_dict)
 
-# from python dict to json string
+# Using file
+# Conversion from json string to python dictionary
 import json
-dictionary2 = {'id':1,'name':'alex','age':19,'address':'alaska'}
-json_string = json.dumps(dictionary2)
-print(json_string)
+print("")
+with open("student.json","r") as file:
+    data = file.read()
 
-# Using json file 
-import json 
-json_string = json.dumps(py_dict,indent=4)
-with open("myjson.json","w") as file:
+py_dict = json.loads(data)
+print(py_dict)
+
+# Conversion from python dictionary to json file
+print("")
+
+dictionary2 = {'id':1,'name':'alex','age':19,'address':'alaska'}
+json_string = json.dumps(dictionary2,indent=4)
+
+with open("student2.json","w") as file:
     file.write(json_string)
+
+# Using load and dump in file
+# Conversion from json string to python dictionary
+import json
+
+with open("student.json","r") as file:
+    py_dict = json.load(file)
+
+print(py_dict)
+
+# Conversion from python dictionary to json string
+dictionary2 = {'id':1,'name':'alex','age':19,'address':'alaska'}
+
+with open("student2.json","w") as file:
+    json.dump(dictionary2,file,indent=4)
