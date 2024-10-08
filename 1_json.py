@@ -11,3 +11,14 @@ Null:null (similar to python None)
 Array:[1,2,"true","Hello"] (list)
 Obejct:"address":{"city":"BKT","country":"Nepal"} (dict)
 '''
+
+# Example:
+my_json_string = '''{
+            "name":"ram",
+            "age":24,
+            "is_student":true,
+            "phone":null,
+            "courses":["python","django","drf"],
+            "address":{"city":"BKT","country":"Nepal"} (dict)
+}
+'''
