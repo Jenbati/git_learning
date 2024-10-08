@@ -33,3 +33,9 @@ import json
 dictionary2 = {'id':1,'name':'alex','age':19,'address':'alaska'}
 json_string = json.dumps(dictionary2)
 print(json_string)
+
+# Using json file 
+import json 
+json_string = json.dumps(py_dict,indent=4)
+with open("myjson.json","w") as file:
+    file.write(json_string)
