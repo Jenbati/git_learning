@@ -27,3 +27,9 @@ my_json_string = '''{
 import json 
 py_dict = json.loads(my_json_string)
 print(py_dict)
+
+# from python dict to json string
+import json
+dictionary2 = {'id':1,'name':'alex','age':19,'address':'alaska'}
+json_string = json.dumps(dictionary2)
+print(json_string)
